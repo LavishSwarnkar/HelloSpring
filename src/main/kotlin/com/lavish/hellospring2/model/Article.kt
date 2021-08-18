@@ -1,9 +1,6 @@
 package com.lavish.hellospring2.model
 
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
+import javax.persistence.*
 
 @Entity
 data class Article (
@@ -12,5 +9,9 @@ data class Article (
 
     val title: String = "",
 
-    val content: String = ""
+    val content: String = "",
+
+    @OneToOne()
+    @JoinColumn(name = "tagId")
+    val tag: Tag = Tag(name = "")
 )
